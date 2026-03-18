@@ -1,0 +1,145 @@
+/* Import a nicer font (optional, but recommended) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Background */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    /* Attractive gradient background */
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure it covers full screen height */
+    padding: 20px; /* Padding for mobile devices */
+}
+
+/* Form container */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    border-radius: 20px; /* Rounder corners */
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); /* Deeper shadow for 3D effect */
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.3s ease; /* Smooth animation */
+}
+
+/* Subtle hover effect on the form container */
+.form-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Form title */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 28px;
+    position: relative;
+}
+
+/* Decorative underline for the title */
+h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #6a11cb;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Form fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 600; /* Bolder label */
+    margin-bottom: 8px;
+    display: block;
+    color: #555;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 2px solid #e0e0e0; /* Lighter default border */
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease; /* Smooth transition for interactions */
+    font-family: inherit; /* Ensures inputs use the Poppins font */
+}
+
+/* Remove default select arrow styling for a cleaner look (optional) */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+input:focus, select:focus {
+    border-color: #6a11cb; /* Matches the theme */
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(106, 17, 203, 0.1); /* Glow effect */
+    outline: none;
+}
+
+/* Placeholder text styling */
+input::placeholder {
+    color: #aaa;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%); /* Gradient button */
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px; /* Fully rounded pill shape */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
+    filter: brightness(1.1); /* Slightly brighten on hover */
+}
+
+.submit-btn:active {
+    transform: translateY(0); /* Press down effect */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .submit-btn {
+        font-size: 16px;
+    }
+}

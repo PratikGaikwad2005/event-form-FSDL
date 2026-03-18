@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="index.css"> <!-- Linking the CSS -->
+</head>
+<body>
+    <div class="form-container">
+        <h1>Register for an Event</h1>
+
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="event">Event Type:</label>
+                <select id="event" name="event" required>
+                    <option value="">Select an Event</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Conference">Conference</option>
+                    <option value="Webinar">Webinar</option>
+                    <option value="Meetup">Meetup</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent the default form submission
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const event = document.getElementById('event').value;
+            const eventDate = document.getElementById('eventDate').value;
+
+            // Send data to the server via POST
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, phone, event, eventDate }),
+                });
+
+                const result = await response.json();
+                alert(result.message); // Show success message
+            } catch (error) {
+                alert('There was an error with the registration');
+            }
+        });
+    </script>
+</body>
+</html>
